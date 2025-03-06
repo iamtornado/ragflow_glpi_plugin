@@ -10,6 +10,10 @@ This plugin integrates RagFlow AI Assistant into GLPI, providing users with easy
 - No database modifications required
 - Compatible with GLPI 10.0.x
 
+## Known Issues
+
+- The AI Assistant currently does not have an upload attachment button.
+
 ## Requirements
 
 - GLPI >= 10.0.0 and < 10.1.0
@@ -29,7 +33,7 @@ This plugin integrates RagFlow AI Assistant into GLPI, providing users with easy
    php bin/console plugin:install ragflow
    php bin/console plugin:enable ragflow
    ```
-   
+
    Alternatively, you can install the plugin through the GLPI web interface:
    - Go to `Setup` > `Plugins`
    - Find the RagFlow plugin
@@ -49,10 +53,10 @@ This plugin is licensed under the GNU General Public License v3.0 or later.
 
 ## Author
 
-- Name: Your Name
-- Website: Your Website
-- Email: Your Email
+- Name: iamtornado
+- Website: https://github.com/iamtornado
+- Email: 1426693102@qq.com
 
 ## Support
 
-For bug reports or feature requests, please use the GitHub issue tracker. 
+For bug reports or feature requests, please use the GitHub issue tracker.
