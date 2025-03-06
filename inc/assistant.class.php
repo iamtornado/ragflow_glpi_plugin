@@ -99,45 +99,8 @@ class PluginRagflowAssistant extends CommonGLPI {
       }
 
       $height = isset($config['frame_height']) ? intval($config['frame_height']) : 600;
-      
-      // Add CSS to ensure proper iframe display
-      echo "<style>
-         .ragflow-assistant-container {
-            height: {$height}px;
-            width: 100%;
-            overflow: hidden;
-            padding: 0;
-            margin: 0;
-         }
-         .ragflow-assistant-container iframe {
-            width: 100%;
-            height: 100%;
-            min-height: {$height}px;
-            border: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            position: relative;
-            display: block;
-         }
-      </style>";
-      
-      echo "<div class='ragflow-assistant-container'>";
-      
-      // Extract src and add necessary attributes
-      if (preg_match('/src=["\']([^"\']+)["\']/', $iframe_code, $matches)) {
-         $src = $matches[1];
-         echo "<iframe 
-                  src='" . htmlspecialchars($src, ENT_QUOTES) . "'
-                  allow='clipboard-write'
-                  allowfullscreen='true'
-                  frameborder='0'>
-               </iframe>";
-      } else {
-         // Fallback to original iframe code if parsing fails
-         echo html_entity_decode($iframe_code, ENT_QUOTES | ENT_HTML5, 'UTF-8');
-      }
-      
+      echo "<div class='ragflow-assistant-container' style='height: {$height}px;'>";
+      echo $iframe_code;
       echo "</div>";
       
       return true;

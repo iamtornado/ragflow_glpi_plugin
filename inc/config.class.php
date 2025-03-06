@@ -135,35 +135,9 @@ class PluginRagflowConfig extends CommonDBTM {
       $config = Config::getConfigurationValues('plugin:ragflow');
       $config = array_merge($config, $values);
 
-      // Clean and validate iframe code
+      // Clean iframe code
       if (isset($config['iframe_code'])) {
-         // Remove any HTML entities and then re-encode special characters
-         $iframe_code = html_entity_decode($config['iframe_code'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
-         $iframe_code = strip_tags($iframe_code, '<iframe>');
-         
-         // Validate that it contains an iframe tag
-         if (!preg_match('/<iframe[^>]*>/', $iframe_code)) {
-            Session::addMessageAfterRedirect(
-               __('Invalid iframe code. Please enter a valid iframe tag.', 'ragflow'),
-               false,
-               ERROR
-            );
-            return false;
-         }
-
-         // Extract src URL
-         if (preg_match('/src=["\']([^"\']+)["\']/', $iframe_code, $matches)) {
-            $src = $matches[1];
-            // Store only the URL, we'll reconstruct the iframe with proper attributes
-            $config['iframe_code'] = $src;
-         } else {
-            Session::addMessageAfterRedirect(
-               __('Invalid iframe code. Missing src attribute.', 'ragflow'),
-               false,
-               ERROR
-            );
-            return false;
-         }
+         $config['iframe_code'] = strip_tags($config['iframe_code'], '<iframe>');
       }
 
       // Validate height
@@ -182,18 +156,6 @@ class PluginRagflowConfig extends CommonDBTM {
     */
    static function getIframeCode() {
       $config = self::getConfig();
-      if (!isset($config['iframe_code'])) {
-         return null;
-      }
-
-      // Construct iframe with all necessary attributes
-      return "<iframe 
-         src='" . htmlspecialchars($config['iframe_code'], ENT_QUOTES) . "'
-         style='width: 100%; height: 100%; min-height: " . 
-         (isset($config['frame_height']) ? intval($config['frame_height']) : 600) . "px'
-         allow='clipboard-write'
-         allowfullscreen='true'
-         frameborder='0'>
-      </iframe>";
+      return isset($config['iframe_code']) ? $config['iframe_code'] : null;
    }
 } 
