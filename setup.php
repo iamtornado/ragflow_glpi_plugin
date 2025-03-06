@@ -36,13 +36,19 @@ function plugin_init_ragflow() {
    
    $PLUGIN_HOOKS['csrf_compliant']['ragflow'] = true;
 
-   // Register class
+   // Register classes
    Plugin::registerClass('PluginRagflowAssistant');
+   Plugin::registerClass('PluginRagflowConfig');
 
    // Add menu entry in assistance
    $PLUGIN_HOOKS['menu_toadd']['ragflow'] = [
       'tools' => 'PluginRagflowAssistant'
    ];
+
+   // Register configuration page
+   if (Session::haveRight('config', UPDATE)) {
+      $PLUGIN_HOOKS['config_page']['ragflow'] = 'front/config.form.php';
+   }
 }
 
 /**

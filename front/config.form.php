@@ -23,28 +23,26 @@
  * ---------------------------------------------------------------------
  */
 
-/**
- * Plugin install process
- *
- * @return boolean
- */
-function plugin_ragflow_install() {
-   // Initialize default configuration with only height
-   Config::setConfigurationValues('plugin:ragflow', [
-      'frame_height' => 600
-   ]);
+include ('../../../inc/includes.php');
 
-   return true;
+Session::checkRight("config", UPDATE);
+
+// Save configuration if submitted
+if (isset($_POST['update'])) {
+   PluginRagflowConfig::saveConfig($_POST);
+   Session::addMessageAfterRedirect(__('Configuration saved successfully', 'ragflow'));
+   Html::back();
 }
 
-/**
- * Plugin uninstall process
- *
- * @return boolean
- */
-function plugin_ragflow_uninstall() {
-   // Remove plugin configuration
-   Config::deleteConfigurationValues('plugin:ragflow', ['iframe_code', 'frame_height']);
+// Display the configuration form
+Html::header(
+   __('RagFlow Configuration', 'ragflow'),
+   $_SERVER['PHP_SELF'],
+   'config',
+   'PluginRagflowConfig'
+);
 
-   return true;
-}
+$config = new PluginRagflowConfig();
+$config->showConfigForm();
+
+Html::footer(); 
