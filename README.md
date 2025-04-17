@@ -1,4 +1,9 @@
-﻿# RagFlow 插件 for GLPI
+﻿## 语言切换
+
+• [English Version](README_EN.md)  
+• [中文版本](README.md)
+
+# RagFlow 插件 for GLPI
 
 本插件将RagFlow AI助手集成到GLPI系统中，使用户可以直接在GLPI界面与AI助理聊天获取帮助。
 
@@ -81,3 +86,4 @@
 ## 技术支持
 
 如需提交问题或功能建议，请使用GitHub的issue跟踪系统。
+

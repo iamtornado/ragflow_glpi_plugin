@@ -1,3 +1,8 @@
+## Language Switch
+
+• [English Version](README_EN.md)  
+• [Chinese Version](README.md)
+
 # RagFlow Plugin for GLPI
 
 This plugin integrates RagFlow AI Assistant into GLPI, providing users with easy access to AI assistance directly from the GLPI interface.
@@ -80,3 +85,4 @@ This plugin is licensed under the GNU General Public License v3.0 or later.
 ## Support
 
 For bug reports or feature requests, please use the GitHub issue tracker.
+
