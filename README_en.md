@@ -79,6 +79,7 @@ This plugin is licensed under the GNU General Public License v3.0 or later.
 - Website: https://github.com/iamtornado
 - Email: 1426693102@qq.com
 - QQ group: 715152187
+![alt text](AI发烧友QQ群二维码裁剪版.png)
 - WeChat Official Account: AI发烧友
 ![alt text](AI发烧友公众号宣传图片.png)
 
