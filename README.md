@@ -1,82 +1,83 @@
-# RagFlow Plugin for GLPI
+﻿# RagFlow 插件 for GLPI
 
-This plugin integrates RagFlow AI Assistant into GLPI, providing users with easy access to AI assistance directly from the GLPI interface.
+本插件将RagFlow AI助手集成到GLPI系统中，使用户可以直接在GLPI界面与AI助理聊天获取帮助。
 
-## Features
+## 功能特性
 
-- Adds an AI Assistant button in the GLPI Assistance menu
-- Seamlessly integrates RagFlow AI Assistant via iframe
-- Simple and lightweight implementation
-- No database modifications required
-- Compatible with GLPI 10.x.x
+• 在GLPI的"工具"菜单中新增"AI助手"入口
+• 通过iframe无缝集成RagFlow AI助手界面
+• 采用简洁轻量级的实现方式
+• 无需修改数据库结构
+• 兼容GLPI 10.x.x版本
 
-## Known Issues
+## 已知问题
 
-- The AI Assistant currently does not have an upload attachment button.
+• 当前版本AI助手暂未提供附件上传功能
 
-## Requirements
+## 系统要求
 
-- GLPI >= 10.0.0
-- PHP >= 7.4
+• GLPI >= 10.0.0
+• PHP >= 7.4
 
-## Installation
+## 安装指南
 
-Perform the following operations on the GLPI server:
+请按以下步骤在GLPI服务器执行操作：
 
-1. Download the latest release from GitHub
+1. 从GitHub获取最新版本
    ```bash
    cd ~
    git clone https://github.com/iamtornado/ragflow_glpi_plugin.git
    ```
-2. Copy ragflow_glpi_plugin directory to your GLPI plugins directory and renmae it to ragflow:
+2. 将插件目录复制到GLPI插件目录并重命名：
    ```bash
-   cd {GLPI_ROOT}/plugins  #example：cd /var/www/html/glpi/plugins
+   cd {GLPI_ROOT}/plugins  #示例路径：cd /var/www/html/glpi/plugins
    cp -R ~/ragflow_glpi_plugin ragflow
    ```
-3. Install and enable the plugin through the GLPI command line:
+3. 通过GLPI命令行安装启用插件：
    ```bash
-   cd {GLPI_ROOT}/plugins/ragflow  #example：cd /var/www/html/glpi/plugins/ragflow
+   cd {GLPI_ROOT}/plugins/ragflow  #示例路径：cd /var/www/html/glpi/plugins/ragflow
    php {GLPI_ROOT}/bin/console cache:clear
    php {GLPI_ROOT}/bin/console plugin:install ragflow
    php {GLPI_ROOT}/bin/console plugin:enable ragflow
    ```
 
-   Alternatively, you can install the plugin through the GLPI web interface:
-   - Go to `Setup` > `Plugins`
-   - Find the RagFlow plugin
-   - Click on `Install` and then `Enable`
-![alt text](glpi_ragflow_plugin.png)
+   或通过网页界面安装：
+   • 进入`设置` > `插件`
+   • 找到RagFlow插件
+   • 依次点击`安装`和`启用`
+![插件截图](glpi_ragflow_plugin.png)
 
-4. Refresh your GLPI page
+4. 刷新GLPI页面
 
-## Configuration
+## 配置说明
 
-1. Go to `Setup` > `Plugins` > `RagFlow` > `Configuration`
-   ![alt text](glpi_ragflow_plugin_configuration.png)
-2. Enter your ragflow full embed iframe code and save the configuration,attention: You'll need to create the ragflow API first, and then get the full embed iframe code from ragflow.
-   ![alt text](ragflow_fullembed_code.png)
-![alt text](enter_ragflow_fullembed_code.png)
+1. 进入`设置` > `插件` > `RagFlow` > `配置`
+   ![配置界面](glpi_ragflow_plugin_configuration.png)
+2. 输入完整的RagFlow嵌入式iframe代码并保存配置（注意：需先在RagFlow平台创建API并获取嵌入代码）
+   ![嵌入代码示例](ragflow_fullembed_code.png)
+![代码输入界面](enter_ragflow_fullembed_code.png)
 
-## Usage
+## 使用说明
 
-1. After installation, you will find the "AI Assistant" button in the Tools menu
-2. Click on the button to open the RagFlow AI Assistant interface
-3. The AI Assistant will be displayed in the right panel of your GLPI interface
-![alt text](AI_assistant.png)
+1. 安装完成后，在"工具"菜单中可见"AI助手"按钮
+2. 点击按钮即可在右侧面板打开AI助手界面
+3. 完整的RagFlow交互界面将嵌入GLPI系统
+![AI助手界面](AI_assistant.png)
 
-## License
+## 授权协议
 
-This plugin is licensed under the GNU General Public License v3.0 or later.
+本插件遵循GNU通用公共许可证v3.0或更高版本。
 
-## Author
+## 开发者信息
 
-- Name: iamtornado
-- Website: https://github.com/iamtornado
-- Email: 1426693102@qq.com
-- QQ group: 715152187
-- WeChat Official Account: AI发烧友
-![alt text](AI发烧友公众号宣传图片.png)
+• 名称：iamtornado
+• 官网：https://github.com/iamtornado
+• 邮箱：1426693102@qq.com
+• QQ交流群：715152187
+![alt text](AI发烧友QQ群二维码裁剪版.png)
+• 微信公众号：AI发烧友
+![公众号二维码](AI发烧友公众号宣传图片.png)
 
-## Support
+## 技术支持
 
-For bug reports or feature requests, please use the GitHub issue tracker.
+如需提交问题或功能建议，请使用GitHub的issue跟踪系统。
